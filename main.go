@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 )
 
 // Не запуская, скачать что выведет код?
@@ -23,7 +22,7 @@ func multiply(numbers *[]*int) {
 	var sum int
 	dic := make(map[*int]struct{})
 	for _, n := range *numbers {
-		if reflect.DeepEqual(dic[n], reflect.Struct) {
+		if _, err := dic[n]; err == false {
 			*n = (*n) * 2
 		}
 		sum += *n
